@@ -1,0 +1,6 @@
+C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\Grafo_Produc2\bin\Debug\Grafo_Produc2.dll
+C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\Grafo_Produc2\bin\Debug\Grafo_Produc2.pdb
+C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\Grafo_Produc2\obj\Debug\Grafo_Produc2.csproj.CoreCompileInputs.cache
+C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\Grafo_Produc2\obj\Debug\Grafo_Produc2.dll
+C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\Grafo_Produc2\obj\Debug\Grafo_Produc2.pdb
+C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\Grafo_Produc2\obj\Debug\Grafo_Produc2.csproj.AssemblyReference.cache
