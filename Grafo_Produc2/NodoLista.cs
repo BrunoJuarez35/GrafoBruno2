@@ -11,7 +11,7 @@ namespace Grafo_Produc2
         //
         public int vertexNum = -5;
         //costo para llegar al vertice
-        public float costs { get;  set; }
+        public int costs { get;  set; }
         //Enlace lista ligada
         public NodoLista next = null;
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,12 +8,14 @@ using Grafo_Produc2;
 
 namespace Grafo_Produc2
 {
-    public class ListaArista
+    public class ListaArista 
     {
-        internal NodoLista inicioLista = null;
-        private int contElemnts = 0;
+        public NodoLista inicioLista = null;
+        public int contElemnts = 0;
 
-        public string InsertaObjeto1(int numV, float cost)
+       
+
+        public string InsertaObjeto1(int numV, int cost)
         {
             string mensaje = "";
 
@@ -58,13 +61,26 @@ namespace Grafo_Produc2
             while (z != null)
             {
                 cads[w] = $"Posicion enlace a:[ {z.vertexNum}]" +
-                    $"costo: {z.costs}";
+                    $"Costo: {z.costs}";
                 z = z.next;
                 w++;
             }
 
             return cads;
         }
+
+        public List<NodoLista> mostrarDatosColeccion()
+        {
+            List<NodoLista> nodos = new List<NodoLista>();
+            NodoLista w = inicioLista;
+            while (w != null)
+            {
+                nodos.Add(w);
+                w = w.next;
+            }
+            return nodos;
+        }
+
 
     }
 }

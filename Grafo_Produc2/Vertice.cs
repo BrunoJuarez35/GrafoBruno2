@@ -8,14 +8,14 @@ namespace Grafo_Produc2
 {
     public class Vertice
     {
-        internal Usuario info = null;
-        internal ListaArista ListaEnlaces = new ListaArista();
+        public Usuario info = null;
+        public ListaArista ListaEnlaces = new ListaArista();
 
         public Vertice(Usuario datos)
         {
             info = datos;
         }
-        public string AgregarArista(int numV2, float costo2)
+        public string AgregarArista(int numV2, int costo2)
         {
             return ListaEnlaces.InsertaObjeto1(numV2, costo2);
         }
@@ -26,9 +26,9 @@ namespace Grafo_Produc2
         }
         public string infoUsuario()
         {
-            return $" Id de usuario {info.IdUsuario} habitrantres{info.Nombres} " +
-                $"habitantes {info.Apellidos}" +
-                $" superficie {info.Edad}";
+            return $" Id: {info.IdUsuario} Nombre:{info.Nombres} " +
+                $"Apellidos: {info.Apellidos}" +
+                $" Edad: {info.Edad}";
         }
     }
 }

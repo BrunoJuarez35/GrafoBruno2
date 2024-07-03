@@ -1,4 +1,5 @@
 ﻿using Grafo_Produc2;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace WebGrafo
     public partial class WebFormGrafo : System.Web.UI.Page
     {
         Grafo graf1 = null;
+        int contaElement = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,10 +20,14 @@ namespace WebGrafo
             { // la carga de la pag por primera vez
                 graf1 = new Grafo();
                 Session["graf1"] = graf1;
+                //Cuenta ID de mi grafo
+                Session["contaElement"] = 0;
             }
             else
             {//ya viene de un postback
                 graf1 = (Grafo)Session["graf1"];
+                contaElement = (int)Session["contaElement"];
+
             }
         }
 
@@ -33,52 +39,29 @@ namespace WebGrafo
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            //Contador que cuente los vertices agregados, condicional que pare al limite de vertices
-            //Agregar Aristas de acuerdo al vertice creado
 
-            //id, nombre,totalhabitantes, superficie
-            Usuario nuevo = null;
+            string msg = "";
 
-            nuevo = new Usuario(10, "A", "Anaa", 30000);
-            graf1.AgregarVertice(nuevo);
+            if (txtNombres.Text == "" || txtApellidos.Text == "" || txtEdad.Text == "")
+            {
+                msg = "Completa los campos";
+                TextMensaje.Text = msg;
 
-            nuevo = new Usuario(1, "B", "Bruno", 30000);
-            graf1.AgregarVertice(nuevo);
+            }
+            else
+            {
+                Usuario nuevo = new Usuario(contaElement, txtNombres.Text, txtApellidos.Text, int.Parse(txtEdad.Text));
+                    contaElement++;
+                msg = graf1.AgregarVertice(nuevo);
+                txtNombres.Text = "";
+                txtApellidos.Text = "";
+                txtEdad.Text = "";
 
-            nuevo = new Usuario(2, "C", "Jose", 30000);
-            graf1.AgregarVertice(nuevo);
-
-            nuevo = new Usuario(3, "D", "Dylan", 30000);
-            graf1.AgregarVertice(nuevo);
-
-            nuevo = new Usuario(4, "E", "Estribor", 30000);
-            graf1.AgregarVertice(nuevo);
-
-            nuevo = new Usuario(5, "F", "Flores", 30000);
-            graf1.AgregarVertice(nuevo);
-
-            nuevo = new Usuario(6, "G", "Galindo", 30000);
-            graf1.AgregarVertice(nuevo);
+            }
 
 
+            Session["contaElement"] = contaElement;
             Session["graf1"] = graf1;
-
-            graf1.AgregarArista(0, 2, 7); //a -> c
-            graf1.AgregarArista(1, 2, 8); //b -> c
-
-            graf1.AgregarArista(2, 3, 9); //c -> D
-            graf1.AgregarArista(2, 4, 7); // c -> E
-
-            graf1.AgregarArista(3, 0, 5); //D -> A
-            graf1.AgregarArista(3, 4, 15); // D -> E
-
-            graf1.AgregarArista(4, 1, 5);//e -> b
-            graf1.AgregarArista(4, 5, 8);//e -> f
-            graf1.AgregarArista(4, 6, 9);//e -> G
-
-            graf1.AgregarArista(5, 3, 6);//f -> d
-
-            graf1.AgregarArista(6, 5, 11);//g -> f
 
 
         }
@@ -112,12 +95,7 @@ namespace WebGrafo
 
                 TextMensaje.Text = msg;
 
-                //DropDownList2.Items.Clear();
-                //foreach (string w in aristas)
-                //{
-                //    DropDownList2.Items.Add(w);
-                //}
-
+                
                 aristas2 = graf1.MostrarAristasVerticeV2(posiVertxt, ref msg);
                 TextMensaje.Text = msg;
                 DropDownListAristas.Items.Clear();
@@ -131,6 +109,135 @@ namespace WebGrafo
             {
                 TextMensaje.Text = "Debe elegir un vertice de la lista";
             }
+
+        }
+
+        protected void btnRecorridoProfundidad_Click(object sender, EventArgs e)
+        { //ListBoxDFSResul
+
+            var result = graf1.Recorrdio_Profundidad();
+            ListBoxDFSResul.Items.Clear();
+
+            foreach (var vertex in result)
+            {
+                ListBoxDFSResul.Items.Add(vertex.ToString());
+            }
+        }
+
+        protected void BtnGuardarArista_Click(object sender, EventArgs e)
+        {
+
+            string msg = "";
+
+            if (textOrigen.Text == "" || txtDestino.Text == "" || txtCosto.Text == "")
+            {
+                msg = "Completa los campos";
+                TextMensaje.Text = msg;
+            }
+            else
+            {
+                msg = graf1.AgregarArista(int.Parse(textOrigen.Text), int.Parse(txtDestino.Text), int.Parse(txtCosto.Text));
+                textOrigen.Text = "";
+                txtDestino.Text = "";
+                txtCosto.Text = "";
+            }
+            Session["graf1"] = graf1;
+        }
+
+        protected void btnVerGrafo_Click(object sender, EventArgs e)
+        {
+            // Serializamos Json con Vertices y Aristas
+            var JsonSerializadoVert = JsonConvert.SerializeObject(graf1.ListaAdyac.Select(v => new {
+                v.info.IdUsuario,
+                v.info.Nombres,
+                aristas = v.ListaEnlaces.mostrarDatosColeccion().Select(a => new {
+                    IdUsuario = graf1.ListaAdyac[a.vertexNum].info.IdUsuario,
+                    Nombres = graf1.ListaAdyac[a.vertexNum].info.Nombres,
+                    costs = a.costs
+                })
+            }));
+
+            // console vertice   
+           // string prueba = $"console.log({verticesJson});";
+            string cadena = $" mostrarGrafo({JsonSerializadoVert});";
+
+            ClientScript.RegisterStartupScript(this.GetType(), "Metodo1", cadena, true);
+
+
+        }
+
+        protected void btnRecorridoAmplitud_Click(object sender, EventArgs e)
+        {
+
+            if (txtRecorridoAmp.Text == "" )
+            {
+                string msg = "";
+                msg = "Completa los campos";
+                TextMensaje.Text = msg;
+            }
+            else
+            {
+                List<int> resultadosBFS = graf1.Recorrido_AmplitudBFS(int.Parse(txtRecorridoAmp.Text));
+                ListBoxBFSResul.Items.Clear();
+
+                foreach (int resultado in resultadosBFS)
+                {
+                    ListBoxBFSResul.Items.Add(resultado.ToString());
+                }
+
+                txtRecorridoAmp.Text = "";
+                
+            }
+
+           
+
+        }
+
+        protected void btnBuscarOrdenTopo_Click(object sender, EventArgs e)
+        {
+            List<int> ordenTopologiconormal = graf1.OrdenTopologica();
+
+            listOrdenTopo.Items.Clear();
+            foreach (int vertice in ordenTopologiconormal)
+            {
+                listOrdenTopo.Items.Add("Vértice: " + vertice);
+            }
+
+
+        }
+
+        protected void btnBuscarOdenTopo2_Click(object sender, EventArgs e)
+        {
+
+            string msg = "";
+            if (txtordenTInici.Text == "" || txtordenTFin.Text == "" )
+            {
+                msg = "Completa los campos";
+                TextMensaje.Text = msg;
+            }
+            else
+            {
+                List<int> ordentopologicoinifin = graf1.ResultadoIniFin(int.Parse(txtordenTInici.Text), int.Parse(txtordenTFin.Text));
+
+                ListOrdenTopo2.Items.Clear();
+                if (ordentopologicoinifin.Count > 0)
+                {
+                    foreach (int vertice in ordentopologicoinifin)
+                    {
+                        ListOrdenTopo2.Items.Add("Vértice: " + vertice);
+                    }
+                }
+                else
+                {
+                    ListOrdenTopo2.Items.Add("No existe un camino");
+                }
+
+
+                txtordenTInici.Text = "";
+                txtordenTFin.Text = "";
+            }
+
+
 
         }
     }

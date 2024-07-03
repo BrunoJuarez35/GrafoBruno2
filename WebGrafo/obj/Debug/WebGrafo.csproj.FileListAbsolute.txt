@@ -59,3 +59,5 @@ C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\WebGr
 C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\WebGrafo\obj\Debug\WebGrafo.pdb
 C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\WebGrafo\bin\Grafo_Produc2.dll
 C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\WebGrafo\bin\Grafo_Produc2.pdb
+C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\WebGrafo\bin\Newtonsoft.Json.dll
+C:\Users\mybru\OneDrive\Escritorio\Programa_Clase\IDEASGRAFO\Grafo_Produc2\WebGrafo\bin\Newtonsoft.Json.xml

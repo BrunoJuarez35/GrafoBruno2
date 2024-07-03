@@ -24,6 +24,15 @@ namespace WebGrafo
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// TextMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextMensaje;
+
+        /// <summary>
         /// txtNombres control.
         /// </summary>
         /// <remarks>
@@ -60,22 +69,40 @@ namespace WebGrafo
         protected global::System.Web.UI.WebControls.Button btnGuardar;
 
         /// <summary>
-        /// TextMensaje control.
+        /// textOrigen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextMensaje;
+        protected global::System.Web.UI.WebControls.TextBox textOrigen;
 
         /// <summary>
-        /// ButtonVert control.
+        /// txtDestino control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonVert;
+        protected global::System.Web.UI.WebControls.TextBox txtDestino;
+
+        /// <summary>
+        /// txtCosto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCosto;
+
+        /// <summary>
+        /// BtnGuardarArista control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnGuardarArista;
 
         /// <summary>
         /// DropDownListVertices control.
@@ -87,13 +114,13 @@ namespace WebGrafo
         protected global::System.Web.UI.WebControls.DropDownList DropDownListVertices;
 
         /// <summary>
-        /// ButtonAristas control.
+        /// ButtonVert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAristas;
+        protected global::System.Web.UI.WebControls.Button ButtonVert;
 
         /// <summary>
         /// DropDownListAristas control.
@@ -105,13 +132,22 @@ namespace WebGrafo
         protected global::System.Web.UI.WebControls.DropDownList DropDownListAristas;
 
         /// <summary>
-        /// btnBuscar control.
+        /// ButtonAristas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.WebControls.Button ButtonAristas;
+
+        /// <summary>
+        /// ListBoxDFSResul control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox ListBoxDFSResul;
 
         /// <summary>
         /// btnRecorridoProfundidad control.
@@ -123,6 +159,15 @@ namespace WebGrafo
         protected global::System.Web.UI.WebControls.Button btnRecorridoProfundidad;
 
         /// <summary>
+        /// txtRecorridoAmp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRecorridoAmp;
+
+        /// <summary>
         /// btnRecorridoAmplitud control.
         /// </summary>
         /// <remarks>
@@ -130,5 +175,77 @@ namespace WebGrafo
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRecorridoAmplitud;
+
+        /// <summary>
+        /// ListBoxBFSResul control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox ListBoxBFSResul;
+
+        /// <summary>
+        /// btnBuscarOrdenTopo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarOrdenTopo;
+
+        /// <summary>
+        /// listOrdenTopo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox listOrdenTopo;
+
+        /// <summary>
+        /// txtordenTInici control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtordenTInici;
+
+        /// <summary>
+        /// txtordenTFin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtordenTFin;
+
+        /// <summary>
+        /// btnBuscarOdenTopo2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarOdenTopo2;
+
+        /// <summary>
+        /// ListOrdenTopo2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox ListOrdenTopo2;
+
+        /// <summary>
+        /// btnVerGrafo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerGrafo;
     }
 }
